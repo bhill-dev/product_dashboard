@@ -9,4 +9,44 @@
     <li><strong>Categories:</strong> {{ num_categories }}</li>
     <li><strong>Tags:</strong> {{ num_tags }}</li>
   </ul>
+<div class="row">
+  <div class="col">
+    <form method="get">
+      {{myfilter.form}}
+      <button class="btn btn-primary" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+                    <th>Tags</th>
+                    <th>Category</th>
+				</tr>
+
+				{% for product in products %}
+
+				<tr>
+					<td>{{product}}</td>
+                    <td>
+                    {% for tag in product.tag.all %}
+                        {{ tag.name }}.
+                    {% empty %}
+                        No tags!
+                    {% endfor %}
+                    </td>
+                    <td>{{product.category}}</td>
+                </tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
 {% endblock %}
