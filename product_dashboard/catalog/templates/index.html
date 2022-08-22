@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Product Dashboard Home</h1>
+  <h2>Dynamic content</h2>
+  <p>The product catalog has the following record counts:</p>
+  <ul>
+    <li><strong>Products:</strong> {{ num_products }}</li>
+    <li><strong>Categories:</strong> {{ num_categories }}</li>
+    <li><strong>Tags:</strong> {{ num_tags }}</li>
+  </ul>
+{% endblock %}
